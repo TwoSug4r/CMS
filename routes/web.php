@@ -6,10 +6,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
 Route::get('/admin', function(){
     return 'you are admin or editor';
 })->middleware('admin');
 
-Auth::routes();
+Route::resource('/admin/pages', 'App\Http\Controllers\Admin\PagesController');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
