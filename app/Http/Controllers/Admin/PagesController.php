@@ -13,8 +13,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.pages.index');
+        $pages = Page::all();
+        return view('admin.pages.index', ['pages' => $pages]);
     }
 
     /**
@@ -22,7 +22,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.create')->with(['model' => new Page()]);
     }
 
     /**
@@ -46,7 +46,8 @@ class PagesController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        $model = Page::findOrFail($page->id);
+        return view('admin.pages.edit', ['model' => $page]);
     }
 
     /**
