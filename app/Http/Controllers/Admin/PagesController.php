@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Auth;
 use App\Models\Page;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\WorkWithPage;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pages = Page::all();
+        if (Auth::user()->isAdminOrEditor()) {
+            $pages = Page::all(); 
+        }
+        else {
+            $pages = Auth::user()->pages()->get();
+        }
         return view('admin.pages.index', ['pages' => $pages]);
     }
 
@@ -28,9 +39,12 @@ class PagesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(WorkWithPage $request)
     {
-        //
+        Auth::user()->pages()->save(new Page($request->only([
+            'title','url','content'])));
+
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -46,16 +60,26 @@ class PagesController extends Controller
      */
     public function edit(Page $page)
     {
-        $model = Page::findOrFail($page->id);
+        if (Auth::user()->cant('update', $page)) {
+            return redirect()->route('pages.index');
+        } 
+
         return view('admin.pages.edit', ['model' => $page]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Page $page)
+    public function update(WorkWithPage $request, Page $page)
     {
-        //
+        if (Auth::user()->cant('update', $page)) {
+            return redirect()->route('pages.index');
+        } 
+
+        $page->fill($request->only(['title','url','content']));
+
+        $page->save();
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -63,6 +87,8 @@ class PagesController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        if (Auth::user()->cant('delete', $page)) {
+            return redirect()->route('pages.index');
+        } 
     }
 }

@@ -1,4 +1,17 @@
 {!! csrf_field() !!}
+
+@if (!$errors->isEmpty())
+
+<div class="alert alert-danger">
+    @foreach ($errors->all() as $message)
+
+    <li>{{ $message }}</li>
+
+    @endforeach
+</div>
+
+@endif
+
 <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title"

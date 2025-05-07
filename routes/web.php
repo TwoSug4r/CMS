@@ -9,9 +9,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin', function(){
-    return 'you are admin or editor';
+    return 'you are admin, editor, author';
 })->middleware('admin');
 
-Route::resource('/admin/pages', 'App\Http\Controllers\Admin\PagesController');
+Route::resource('/admin/pages', 'App\Http\Controllers\Admin\PagesController')->middleware('admin');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
