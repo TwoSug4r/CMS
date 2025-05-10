@@ -3,14 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        'App\Page' => 'App\Policies\PagePolicy',
-        'App\User' => 'App\Policies\ManageUsersPolicy'
-    ];
-    
+ 
     /**
      * Register services.
      */
@@ -24,6 +21,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::policy(\App\Models\Page::class, \App\Policies\PagePolicy::class);
+        Gate::policy(\App\Models\User::class, \App\Policies\ManageUsersPolicy::class);
     }
 }

@@ -49,9 +49,9 @@
                             </li>
 
                             <!-- УЁБИЩЕ ЕБАННОЕ ПОЧ FALSE -->
-                            @can('manageUsers', Auth::user())
+                            @can('manageUsers', App\Models\User::class)
                                 <li class="nav-item">
-                                    <a href="#">Manage Users</a>
+                                    <a class="nav-link" href="#">Manage Users</a>
                                 </li>
                             @endcan
                         @endguest
