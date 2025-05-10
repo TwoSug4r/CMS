@@ -9,7 +9,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin', function(){
-    return 'you are admin, editor, author';
+    return view('admin.index');
 })->middleware('admin');
 
 Route::resource('/admin/pages', 'App\Http\Controllers\Admin\PagesController')->middleware('admin');

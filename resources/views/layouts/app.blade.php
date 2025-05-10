@@ -30,7 +30,31 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <!-- Pages -->
+                        @guest
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Pages
+                                </a>
 
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('pages.index') }}">
+                                        Page List
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('pages.create') }}">
+                                        New Create
+                                    </a>
+                                </div>
+                            </li>
+
+                            <!-- УЁБИЩЕ ЕБАННОЕ ПОЧ FALSE -->
+                            @can('manageUsers', Auth::user())
+                                <li class="nav-item">
+                                    <a href="#">Manage Users</a>
+                                </li>
+                            @endcan
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
