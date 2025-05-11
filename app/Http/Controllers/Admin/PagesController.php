@@ -48,14 +48,6 @@ class PagesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Page $page)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Page $page)

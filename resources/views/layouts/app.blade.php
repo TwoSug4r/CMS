@@ -48,10 +48,10 @@
                                 </div>
                             </li>
 
-                            <!-- УЁБИЩЕ ЕБАННОЕ ПОЧ FALSE -->
+                            <!-- works -->
                             @can('manageUsers', App\Models\User::class)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Manage Users</a>
+                                    <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
                                 </li>
                             @endcan
                         @endguest
