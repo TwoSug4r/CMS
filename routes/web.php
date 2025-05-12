@@ -16,6 +16,10 @@ Route::resource('/admin/pages', \App\Http\Controllers\Admin\PagesController::cla
     'show',
 ]]);
 
+Route::resource('/admin/blog', \App\Http\Controllers\Admin\BlogController::class,['except' => [
+    'show',
+]]);
+
 Route::resource('/admin/users', \App\Http\Controllers\Admin\UsersController::class,['except' => [
     'show',
     'create',

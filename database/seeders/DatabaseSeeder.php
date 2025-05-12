@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             RoleTableSeeder::class,
             UsersTableSeeder::class,
             PagesTableSeeder::class,
+            PostsTableSeeder::class,
         ]);
     }
 }

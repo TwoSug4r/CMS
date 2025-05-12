@@ -3,6 +3,12 @@
 @section("content")
 
 <div class="container">
+    @if (session('status'))
+        <div class="alert alert-info">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <a href="{{ route('pages.create') }}" class="btn">Create New</a>
     <table class="table">
         <thead>
@@ -11,17 +17,23 @@
                 <th>Email</th>
                 <th>Roles</th>
             </tr>
-            @foreach ($model as $user)
-                <tr>
-                    <td>
-                        <a href=" {{ route('users.edit', ['user' => $user->id]) }}">{{ $user->name }}</a>
-                    </td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ implode(', ',$user->roles()->get()->pluck('name')->toArray()) }}</td>
-                </tr>
-            @endforeach
         </thead>
+
+        @foreach ($model as $user)
+
+            <tr>
+                <td>
+                    <a href=" {{ route('users.edit', ['user' => $user->id]) }}">{{ $user->name }}</a>
+                </td>
+                <td>{{ $user->email }}</td>
+                <td>{{ implode(', ',$user->roles()->get()->pluck('name')->toArray()) }}</td>
+            </tr>
+
+        @endforeach
+
     </table>
+    {{ $model->links() }}
 </div>
+
 
 @endsection

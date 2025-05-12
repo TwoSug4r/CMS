@@ -11,12 +11,17 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+        $this->middleware('can:manageUsers,App\Models\User');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.users.index')->with('model', User::all());
+        return view('admin.users.index')->with('model', User::paginate(10));
     }
 
     /**
@@ -25,7 +30,7 @@ class UsersController extends Controller
     public function edit(User $user)
     {
         if(Auth::user()->id == $user->id) {
-            return redirect()->route('users.index');
+            return redirect()->route('users.index')->with('status', 'You cannot edit yourself');
         }
 
         return view('admin.users.edit',[
@@ -40,12 +45,12 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
         if(Auth::user()->id == $user->id) {
-            return redirect()->route('users.index');
+            return redirect()->route('users.index')->with('status', 'You cannot edit yourself');
         }
 
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('status', "$user->name was  updated.");
     }
 
     /**
