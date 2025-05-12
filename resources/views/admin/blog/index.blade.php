@@ -28,6 +28,13 @@
                     <td>{{ $post->user()->first()->name }}</td>
                     <td>{{ $post->slug }}</td>
                     <td></td>
+                    <td class="text-right">
+                        <form action="{{ route('blog.destroy', ['blog' => $post->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
     </table>

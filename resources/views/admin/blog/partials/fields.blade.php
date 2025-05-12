@@ -17,17 +17,33 @@
     <input type="text" class="form-control" id="title"
         name="title" value="{{ $model->title }}"/>
 </div>
+
 <div class="form-group">
-    <label for="url">URl</label>
-    <input type="text" class="form-control" id="url"
-        name="url" value="{{ $model->url }}"/>
+    <label for="slug">Slug</label>
+    <input type="text" class="form-control" id="slug"
+        name="slug" value="{{ $model->slug }}"/>
 </div>
+
 <div class="form-group">
-    <label for="content">Content</label>
-    <textarea class="form-control" name="content" id="content">
-        {{ $model->content }}
+    <label for="published_at">Published Date/Time</label>
+    <input type="text" class="form-control" id="published_at"
+        name="published_at" value="{{ $model->published_at }}"/>
+</div>
+
+<div class="form-group">
+    <label for="excerpt">Excerpt</label>
+    <textarea class="form-control" name="excerpt" id="excerpt">
+        {{ $model->excerpt }}
     </textarea>
 </div>
+
+<div class="form-group">
+    <label for="body">Body</label>
+    <textarea class="form-control" name="body" id="body">
+        {{ $model->body }}
+    </textarea>
+</div>
+
 <div class="form-group">
     <input type="submit" class="btn-default" value="Submit"/>
 </div>

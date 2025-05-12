@@ -4,8 +4,8 @@
 
 <div class="container">
     <h1>Create New</h1>
-    <form action="{{ route('pages.store') }}" method="post">
-        @include('admin.pages.partials.fields')
+    <form action="{{ route('blog.store') }}" method="post">
+        @include('admin.blog.partials.fields')
     </form>
 </div>
 
