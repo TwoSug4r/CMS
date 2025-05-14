@@ -27,7 +27,7 @@
                     </td>
                     <td>{{ $post->user()->first()->name }}</td>
                     <td>{{ $post->slug }}</td>
-                    <td></td>
+                    <td>{{ $post->published_at }}</td>
                     <td class="text-right">
                         <form action="{{ route('blog.destroy', ['blog' => $post->id]) }}" method="POST">
                             @csrf

@@ -24,10 +24,18 @@
         name="slug" value="{{ $model->slug }}"/>
 </div>
 
-<div class="form-group">
+<div class="form-group position-relative">
+
     <label for="published_at">Published Date/Time</label>
-    <input type="text" class="form-control" id="published_at"
-        name="published_at" value="{{ $model->published_at }}"/>
+    <input 
+        type="text" 
+        class="form-control datetimepicker-input" 
+        id="published_at"
+        name="published_at" 
+        data-target="#published_at"
+        data-toggle="datetimepicker"
+        value="{{ $model->published_at }}"
+        />
 </div>
 
 <div class="form-group">

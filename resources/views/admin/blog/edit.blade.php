@@ -11,3 +11,9 @@
 </div>
 
 @endsection
+
+@section('scripts')
+
+@include('admin.blog.partials.scripts')
+
+@endsection
