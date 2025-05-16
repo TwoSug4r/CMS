@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Auth::routes();
 
@@ -25,5 +24,3 @@ Route::resource('/admin/users', \App\Http\Controllers\Admin\UsersController::cla
     'create',
     'store'
 ]]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
