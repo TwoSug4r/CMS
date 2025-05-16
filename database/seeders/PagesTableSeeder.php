@@ -18,22 +18,31 @@ class PagesTableSeeder extends Seeder
 
         Page::truncate();
 
-        $admin->pages()->saveMany([
-            new Page([
-                'title' => 'About',
-                'url' => '/about',
-                'content' => 'This is about us.'
-            ]),
-            new Page([
-                'title' => 'Content',
-                'url' => '/content',
-                'content' => 'This is conect us.'
-            ]),
-            new Page([
-                'title' => 'Another',
-                'url' => '/another-page',
-                'content' => 'This is another us.'
-            ]),
+        
+        $about = new Page([
+            'title' => 'About',
+            'url' => '/about',
+            'content' => 'This is about us.'
         ]);
+
+        $contact = new Page([
+            'title' => 'Contact',
+            'url' => '/contact',
+            'content' => 'This is contact us.'
+        ]);
+
+        $faq = new Page([
+            'title' => 'FAQ',
+            'url' => '/another-page',
+            'content' => 'This is another us.'
+        ]);
+        
+        $admin->pages()->saveMany([
+            $about,
+            $contact,
+            $faq
+        ]);
+
+        $about->appendNode($faq);
     }
 }

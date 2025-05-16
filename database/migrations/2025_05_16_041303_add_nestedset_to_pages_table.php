@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Kalnoy\Nestedset\NestedSet;
 
 return new class extends Migration
 {
@@ -11,13 +12,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('url')->unique();
-            $table->string('contact');
-            $table->integer('user_id');
-            $table->timestamps();
+        Schema::table('pages', function (Blueprint $table) {
+            NestedSet::columns($table);
         });
     }
 
@@ -26,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pages');
+        Schema::table('pages', function (Blueprint $table) {
+            NestedSet::dropColumns($table);
+        });
     }
 };
