@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c1b8d1b1f48e853c5c6e76c0f0c52b3",
+    "content-hash": "2eb4d4e8caf8e1d549767b91930d0a0c",
     "packages": [
         {
             "name": "brick/math",
@@ -1116,6 +1116,56 @@
                 "source": "https://github.com/lazychaser/laravel-nestedset/tree/v6.0.5"
             },
             "time": "2025-02-25T11:09:07+00:00"
+        },
+        {
+            "name": "laracasts/presenter",
+            "version": "0.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/Presenter.git",
+                "reference": "2f5e6f844a67f2285b59ef96a1a9ce4b2cb1adff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/Presenter/zipball/2f5e6f844a67f2285b59ef96a1a9ce4b2cb1adff",
+                "reference": "2f5e6f844a67f2285b59ef96a1a9ce4b2cb1adff",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|~6.0|~7.0|~8.0|^9.0|^10.0|^11.0|^12.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9|^1.6",
+                "phpspec/phpspec": "~2.0|^7.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Presenter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Simple view presenters",
+            "keywords": [
+                "laravel",
+                "presenter",
+                "view"
+            ],
+            "support": {
+                "issues": "https://github.com/laracasts/Presenter/issues",
+                "source": "https://github.com/laracasts/Presenter/tree/0.2.8"
+            },
+            "time": "2025-04-07T17:59:15+00:00"
         },
         {
             "name": "laravel/framework",

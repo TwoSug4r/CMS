@@ -20,7 +20,7 @@ class PagesController extends Controller
     public function index()
     {
         if (Auth::user()->isAdminOrEditor()) {
-            $pages = Page::defaultOrder()->paginate(5); 
+            $pages = Page::defaultOrder()->withDepth()->paginate(5); 
         }
         else {
             $pages = Auth::user()->pages()->paginate(5);

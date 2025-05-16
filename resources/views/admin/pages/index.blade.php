@@ -22,7 +22,7 @@
             @foreach ($pages as $page)
                 <tr>
                     <td>
-                        <a href="{{ route('pages.edit', ['page' => $page->id]) }}">{{ $page->title }}</a>
+                        <a href="{{ route('pages.edit', ['page' => $page->id]) }}">{!! $page->present()->paddedTitle !!}</a>
                     </td>
                     <td>{{ $page->url }}</td>
                     <td class="text-right">
