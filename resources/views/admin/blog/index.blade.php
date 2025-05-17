@@ -17,6 +17,7 @@
                 <th>Author</th>
                 <th>Slug</th>
                 <th>Published</th>
+                <th>Delete</th>
             </tr>    
         </thead>
 
