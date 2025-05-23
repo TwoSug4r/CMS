@@ -12,6 +12,7 @@ class Post extends Model
     protected $presenter = 'App\Presenters\PostPresenter';
     
     protected $fillable = [
+        'user_id',
         'title',
         'slug',
         'body',
