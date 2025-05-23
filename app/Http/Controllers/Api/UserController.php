@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -28,16 +29,20 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
+        
+        $token = $user->createToken('api-token')->plainTextToken;
 
-        return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
+        return response()->json(['message' => 'User created successfully', 'user' => new UserResource($user), 'token' => $token], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Request $request)
     {
-        //
+        $user = $request->user();
+
+        return new UserResource($user);
     }
 
     /**
