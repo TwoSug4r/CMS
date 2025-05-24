@@ -20,6 +20,10 @@ class Post extends Model
         'published_at',
     ];
 
+    protected $casts = [
+        'published_at' => 'datetime', // Преобразует published_at в Carbon
+    ];
+
     public function user(){
         return $this->belongsTo('\App\Models\User');
     }

@@ -10,7 +10,7 @@ Auth::routes();
 //Admin
 Route::get('/admin', function(){
     return view('admin.index');
-})->middleware('admin')->name('admin');
+})->name('admin');
 
 //Pages
 Route::resource('/admin/pages', \App\Http\Controllers\Admin\PagesController::class,['except' => [

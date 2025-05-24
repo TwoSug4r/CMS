@@ -30,22 +30,7 @@
                     <ul class="navbar-nav me-auto">
                         <!-- Pages -->
                         @guest
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Pages
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('pages.index') }}">
-                                        Page List
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('pages.create') }}">
-                                        New Create
-                                    </a>
-                                </div>
-                            </li>
-
+                        @else               
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Blog Posts
@@ -60,7 +45,24 @@
                                     </a>
                                 </div>
                             </li>
+                            
 
+                            @can('manageUsers', App\Models\User::class)
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Pages
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('pages.index') }}">
+                                            Page List
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('pages.create') }}">
+                                            New Create
+                                        </a>
+                                    </div>
+                                </li>
+                            @endcan
                             <!-- works -->
                             @can('manageUsers', App\Models\User::class)
                                 <li class="nav-item">

@@ -12,10 +12,6 @@ use App\Http\Requests\UpdateBlogRequest;
 
 class BlogController extends Controller
 {
-    public function __construct(){
-        $this->middleware('admin');
-    }
-
     /**
      * Display a listing of the resource.
      */
@@ -90,7 +86,6 @@ class BlogController extends Controller
         if (Auth::user()->cant('delete', $blog)){
             return redirect()->route('blog.index')->with('status', 'You do not have permission to delete that post.');
         }
-
         $blog->delete();
 
         return redirect()->route('blog.index')->with('status', 'The post was deleted.');
