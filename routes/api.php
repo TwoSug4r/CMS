@@ -8,9 +8,12 @@ use App\Http\Controllers\Api\UserController;
 Route::middleware('auth:sanctum')->group(function () {
     //profile
     Route::get('/profile', [UserController::class, 'show']);
+    Route::put('/user', [UserController::class, 'update']);
 
     // Добавьте здесь свои маршруты, например, для работы с контентом CMS
     Route::apiResource('/posts', PostController::class);
+
+    
 });
 
 Route::post('/register', [UserController::class, 'store']);
