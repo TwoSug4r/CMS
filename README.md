@@ -2,9 +2,9 @@
 
 ## Установка и Запуск
 
-### Linux
+### Debian подобные Linux 
 
-Если не установлино php выполнить эту команду:
+Если не установлено php выполнить эту команду:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
@@ -32,7 +32,7 @@ composer global require laravel/installer
 
 ```bash
 git clone https://github.com/TwoSug4r/CMS.git
-laravel new example
+laravel new example 
 #None
 #MySQL
 #No
@@ -51,6 +51,14 @@ php artisan db:seed
 #routes/web.php разкомментить
 npm install --legacy-peer-deps
 npm run build
+```
+
+Если не работает laravel new example :
+
+```bash
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 Запуск проекта:
