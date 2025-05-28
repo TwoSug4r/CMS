@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('url')->unique();
-            $table->string('contact');
+            $table->string('content');
             $table->integer('user_id');
             $table->timestamps();
         });

@@ -1,4 +1,64 @@
-<p align="center">This Pet Project, not very serious</p>
+<p align="center">Это pet проект, что бы понимать примерно мои знания</p>
+
+## Установка и Запуск
+
+### Linux
+
+Если не установлино php выполнить эту команду:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
+```
+
+Если не установлен composer выполнить эти команд при наличии php:
+
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+#для вызова composer из любого каталога
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+Если у вас уже установлены PHP и Composer, вы можете установить установщик Laravel через Composer:
+
+```bash
+composer global require laravel/installer
+```
+
+Создание и настройка проекта:
+
+```bash
+git clone https://github.com/TwoSug4r/CMS.git
+laravel new example
+#None
+#MySQL
+#No
+#No
+
+cp -R CMS/* example
+rm -rf CMS
+cd example
+
+#настройка env
+#routes/web.php закомментить
+composer install
+
+#проверить наличие db 
+php artisan migrate
+php artisan db:seed
+#routes/web.php разкомментить
+npm install --legacy-peer-deps
+npm run build
+```
+
+Запуск проекта:
+
+```bash
+php artisan serve
+```
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 

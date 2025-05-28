@@ -25,10 +25,10 @@ class PagesTableSeeder extends Seeder
             'content' => 'This is about us.'
         ]);
 
-        $contact = new Page([
-            'title' => 'Contact',
-            'url' => '/contact',
-            'content' => 'This is contact us.'
+        $content = new Page([
+            'title' => 'Content',
+            'url' => '/content',
+            'content' => 'This is content us.'
         ]);
 
         $faq = new Page([
@@ -39,7 +39,7 @@ class PagesTableSeeder extends Seeder
         
         $admin->pages()->saveMany([
             $about,
-            $contact,
+            $content,
             $faq
         ]);
 
